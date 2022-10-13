@@ -1,5 +1,39 @@
+#page {
+  display: flex;
+}
+#game-intro {
+  height: 745px;
+  width: 400px;
+  background-color: rgb(85, 195, 200);
+  float: left;
+}
 .logo-img {
-height: 100px;
-width: 400px;
-background-color: rgb(85, 195, 200);
+  height: 100px;
+  width: 400px;
+}
+.landing-img {
+  height: 300px;
+  width: 400px;
+}
+.arrowKey-img {
+  margin-left: 40px;
+  height: 100px;
+  width: 300px;
+}
+#start-button {
+  background-color: rgb(114, 239, 113);
+  color: rgb(35, 162, 189);
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 20px;
+  height: 130px;
+  width: 130px;
+  box-shadow: 0 2px 4px rgb(34, 144, 144);
+  cursor: pointer;
+  margin-left: 130px;
+}
+
+canvas {
+  background-image: url("image/background-canvas.png");
+  background-size: cover;
 }
