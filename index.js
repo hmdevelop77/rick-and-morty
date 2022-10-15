@@ -19,8 +19,6 @@ class Game {
 function startGame() {
   currentGame = new Game();
   let currentShip = new Ship();
-//let currentAliens = new Aliens();
-//currentGame.aliens.push(currentAliens);
   currentGame.ship = currentShip;
   setInterval(updateCanvas, 1);
 }
@@ -32,7 +30,7 @@ function updateCanvas() {
   enemie.x += 1;
   enemie.drawAliens()
  })
- if (currentGame.aliensFrequency % 120 === 1) {
+ if (currentGame.aliensFrequency % 120 === 0) {
   const randomObstacleX =0;
   const randomObstacleY = Math.floor(Math.random() * 600);
   const randomObstacleWidth = 50
@@ -40,9 +38,7 @@ function updateCanvas() {
 
   const currentAliens = new Aliens(
     randomObstacleX,
-    randomObstacleY,
-    randomObstacleWidth,
-    randomObstacleHeight
+     randomObstacleY
   );
   currentGame.aliens.push(currentAliens);
   //currentGame.obstacles.push(newObstacle);

@@ -3,12 +3,12 @@ class Ship {
   constructor() {
     this.x = 500;
     this.y = 650;
-    this.width = 50;
-    this.height = 50;
-    const image = new Image();
-    image.src = "image/st,small,507x507-pad,600x600,f8f8f8.jpeg";
-    image.onload = () => {
-      this.image = image;
+    this.width = 70;
+    this.height = 70;
+    this.image = new Image();
+    this.image.src = "image/ship. 7x507-pad_600x600_f8f8f8-removebg-preview (3).png";
+    this.image.onload = () => {
+      /* this.image = image; */
      this.draw();
     };
   }
