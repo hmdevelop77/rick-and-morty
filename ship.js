@@ -1,18 +1,16 @@
-
 class Ship {
   constructor() {
-    this.x = 500;
+    this.x = 50;
     this.y = 650;
     this.width = 70;
     this.height = 70;
     this.image = new Image();
-    this.image.src = "image/ship. 7x507-pad_600x600_f8f8f8-removebg-preview (3).png";
+    this.image.src =
+      "image/ship. 7x507-pad_600x600_f8f8f8-removebg-preview (3).png";
     this.image.onload = () => {
-      /* this.image = image; */
-     this.draw();
+      this.draw();
     };
   }
-  
   draw() {
     context.drawImage(this.image, this.x, this.y, this.width, this.height);
   }
@@ -38,7 +36,7 @@ class Ship {
         break;
       case "ArrowRight":
         if (this.x < 1000) {
-         this.x += 10; 
+          this.x += 10;
         }
         break;
       case "ArrowUp":
