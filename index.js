@@ -4,15 +4,16 @@ document.getElementById("start-button").onclick = () => {
   startGame();
 };
 let currentGame;
+
 class Game {
   constructor() {
     this.ship = {};
     this.aliens = [];
     this.planet = {};
     this.aliensFrequency = 0;
-   //this.animationId = null;
     this.gameOver = false;
     this.levelPassed = true;
+    this.intervalId = null ;
   }
 }
 function startGame() {
@@ -21,7 +22,10 @@ function startGame() {
   currentGame.ship = currentShip;
   let currentPlanet = new Planet();
   currentGame.planet = currentPlanet;
-  setInterval(updateCanvas, 1);
+  currentGame.intervalId = setInterval(() => {
+    updateCanvas()
+  }, 1000 / 60);
+
 }
 function detectCollision(alien) {
   return !(
@@ -31,6 +35,15 @@ function detectCollision(alien) {
     currentGame.ship.y + currentGame.ship.height - 30 < alien.y
   );
 }
+function checkGameOver(){
+  context.clearRect(0, 0, spaceCanvas.clientWidth, spaceCanvas.clientHeight);
+
+  clearInterval(currentGame.intervalId);
+     window.alert("game over");
+    //  document.getElementById("restart-button").onclick = () => {
+    //   startGame();
+    // };
+}
 function updateCanvas() {
   context.clearRect(0, 0, spaceCanvas.clientWidth, spaceCanvas.clientHeight);
   currentGame.ship.draw();
@@ -39,7 +52,6 @@ function updateCanvas() {
     alert("Congratulations");
    }; 
   currentGame.aliensFrequency++;
-
   currentGame.aliens.forEach((alien) => {
     alien.x += 0.7; // speed of aliens
     alien.drawAliens();
@@ -47,24 +59,15 @@ function updateCanvas() {
       currentGame.gameOver = true;
       currentGame.aliensFrequency = 0;
       currentGame.aliens = [];
-      checkGameOver()
+      checkGameOver() 
     }
-    function checkGameOver() {
-      if(currentGame.gameOver = true){
-        context.font = "150px Ricks";
-      context.fillText("GAME OVER", (spaceCanvas.width / 2) - 300, spaceCanvas.height / 2);
-      context.fillStyle = "palegreen";
-      window.
-      }
-      
-  }
   });
   if (currentGame.aliensFrequency % 120 === 0) {
     const randomAlienX = 0;
     const randomAlienY = Math.floor(Math.random() * 600);
     const currentAliens = new Aliens(randomAlienX, randomAlienY);
     currentGame.aliens.push(currentAliens);
-  }
+  } 
 }
 document.addEventListener("keydown", (keyboardEvent) => {
   currentGame.ship.moveShip(keyboardEvent.key);

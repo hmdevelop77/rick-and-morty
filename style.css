@@ -38,3 +38,15 @@ canvas {
   background-image: url("image/background-canvas.png");
   background-size: cover;
 }
+#restart-button{
+  background-color: rgb(114, 239, 113);
+  color: rgb(35, 162, 189);
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 20px;
+  height: 130px;
+  width: 130px;
+  box-shadow: 0 2px 4px rgb(34, 144, 144);
+  cursor: pointer;
+  margin-left: 530px;
+}
