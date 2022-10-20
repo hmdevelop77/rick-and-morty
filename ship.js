@@ -15,16 +15,16 @@ class Ship {
     context.drawImage(this.image, this.x, this.y, this.width, this.height);
   }
   moveLeft() {
-    this.x -= 5;
+    this.x -= 15;
   }
   moveRight() {
-    this.x += 5;
+    this.x += 15;
   }
   moveUp() {
-    this.y -= 5;
+    this.y -= 15;
   }
   moveDown() {
-    this.y += 5;
+    this.y += 15;
   }
   moveShip(key) {
     context.clearRect(this.x, this.y, this.width, this.height);
