@@ -13,7 +13,7 @@ document.getElementById("restart-button").onclick = () => {
 document.getElementById("levelpass-button").onclick = () => {
   document.getElementById("restart-button").style.visibility = "hidden";
   document.getElementById("levelpass-button").style.visibility = "hidden";
-  startNewGame();
+  startGame();
 };
 let currentGame;
 class Game {
@@ -67,7 +67,6 @@ function checkReachPlanet() {
   context.fillStyle = "rgb(114, 239, 113)";
   context.font = "100px Ricks";
   context.fillText("LEVEL PASS", 200, 400);
-<<<<<<< HEAD
   nextLevel ()
 };
 function nextLevel (){
@@ -75,25 +74,6 @@ function nextLevel (){
   clearInterval(currentGame.intervalId);
 
 }
-=======
-  currentGame = null
-
-};
-
-function startNewGame() {
-  context.clearRect(0, 0, spaceCanvas.clientWidth, spaceCanvas.clientHeight);
-  if(!currentGame){
-  currentGame = new Game();
-  let currentShip = new Ship();
-  currentGame.ship = currentShip;
-  let currentPlanet = new Planet();
-  currentGame.planet = currentPlanet;
-  currentGame.intervalId = setInterval(() => {
-    updateCanvas();
-  }, 1);
-  }
-};
->>>>>>> origin
 function updateCanvas() {
   context.clearRect(0, 0, spaceCanvas.clientWidth, spaceCanvas.clientHeight);
   currentGame.ship.draw();
@@ -102,13 +82,6 @@ function updateCanvas() {
     currentGame.gameOver = true;
     checkReachPlanet();
   };
-  if (detectCollision(currentGame.planet)) {
-    currentGame.gameOver = true;
-    currentGame.aliensFrequency = 0;
-      currentGame.aliens = [];
-    startNewGame();
-  };
-  
   currentGame.aliensFrequency++;
   currentGame.aliens.forEach((alien) => {
     alien.x += 0.7; // speed of aliens

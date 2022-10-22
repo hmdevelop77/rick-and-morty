@@ -20,7 +20,7 @@ class Game {
   constructor() {
     this.ship = {};
     this.aliens = [];
-    this.planet = [];
+    this.planet = {};
     this.aliensFrequency = 0;
     this.gamerun= false ;
     this.gameOver = false;
@@ -38,7 +38,7 @@ function startGame() {
   currentGame.intervalId = setInterval(() => {
     updateCanvas();
   }, 1);
-  } 
+  }
 };
 function detectCollision(alien) {
   return !(
@@ -67,15 +67,6 @@ function checkReachPlanet() {
   context.fillStyle = "rgb(114, 239, 113)";
   context.font = "100px Ricks";
   context.fillText("LEVEL PASS", 200, 400);
-<<<<<<< HEAD
-  nextLevel ()
-};
-function nextLevel (){
-  context.clearRect(0, 0, spaceCanvas.clientWidth, spaceCanvas.clientHeight);
-  clearInterval(currentGame.intervalId);
-
-}
-=======
   currentGame = null
 
 };
@@ -93,7 +84,6 @@ function startNewGame() {
   }, 1);
   }
 };
->>>>>>> origin
 function updateCanvas() {
   context.clearRect(0, 0, spaceCanvas.clientWidth, spaceCanvas.clientHeight);
   currentGame.ship.draw();
@@ -130,4 +120,3 @@ function updateCanvas() {
 document.addEventListener("keydown", (keyboardEvent) => {
   currentGame.ship.moveShip(keyboardEvent.key);
 });
-
