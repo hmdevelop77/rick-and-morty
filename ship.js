@@ -1,7 +1,7 @@
 class Ship {
-  constructor() {
-    this.x = 50;
-    this.y = 650;
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
     this.width = 70;
     this.height = 70;
     this.image = new Image();
