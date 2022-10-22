@@ -37,7 +37,7 @@ function startGame() {
   currentGame.planet = currentPlanet;
   currentGame.intervalId = setInterval(() => {
     updateCanvas();
-  }, 1000 / 30);
+  }, 1000 /30 );
   } 
 };
 function detectCollision(alien) {
@@ -75,18 +75,18 @@ function checkReachPlanet() {
 // }
 currentGame = null ;
 function startNewGame() {
-  
-  context.clearRect(0, 0, spaceCanvas.clientWidth, spaceCanvas.clientHeight);
-  if(!currentGame){
-  currentGame = new Game();
-  let currentShip = new Ship();
-  currentGame.ship = currentShip;
-  let currentPlanet = new Planet();
-  currentGame.planet = currentPlanet;
-  currentGame.intervalId = setInterval(() => {
-    updateCanvas();
-  }, 1);
-  }
+  // context.clearRect(0, 0, spaceCanvas.clientWidth, spaceCanvas.clientHeight);
+  // if(!currentGame){
+    startGame();
+  // currentGame = new Game();
+  // let currentShip = new Ship();
+  // currentGame.ship = currentShip;
+  // let currentPlanet = new Planet();
+  // currentGame.planet = currentPlanet;
+  // currentGame.intervalId = setInterval(() => {
+  //   updateCanvas();
+  // }, 1);
+  //}
 };
 function updateCanvas() {
   context.clearRect(0, 0, spaceCanvas.clientWidth, spaceCanvas.clientHeight);
@@ -103,7 +103,7 @@ function updateCanvas() {
     startNewGame();
   };
   
-  currentGame.aliensFrequency += 10;
+  currentGame.aliensFrequency += 5;
   currentGame.aliens.forEach((alien) => {
     alien.x += 5 // speed of aliens
     alien.drawAliens();
@@ -114,7 +114,7 @@ function updateCanvas() {
       checkGameOver();
     };
   });
-  if (currentGame.aliensFrequency % 120 === 0) {
+  if (currentGame.aliensFrequency % 120 === 60) {
     const randomAlienX = 0;
     const randomAlienY = Math.floor(Math.random() * 600);
     const currentAliens = new Aliens(randomAlienX, randomAlienY);
