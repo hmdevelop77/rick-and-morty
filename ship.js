@@ -10,21 +10,21 @@ class Ship {
     this.image.onload = () => {
       this.draw();
     };
-  }
+  };
   draw() {
     context.drawImage(this.image, this.x, this.y, this.width, this.height);
   }
   moveLeft() {
-    this.x -= 15;
+    this.x -= 25;
   }
   moveRight() {
-    this.x += 15;
+    this.x += 25;
   }
   moveUp() {
-    this.y -= 15;
+    this.y -= 25;
   }
   moveDown() {
-    this.y += 15;
+    this.y += 25;
   }
   moveShip(key) {
     context.clearRect(this.x, this.y, this.width, this.height);
