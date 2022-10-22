@@ -16,6 +16,10 @@ document.getElementById("levelpass-button").onclick = () => {
   startNewGame();
 };
 let currentGame;
+const themeSong = new Audio('Sound/theme.mp3');
+const planetLand = new Audio('Sound/woo_vu_luvub_dub_dub.wav');
+const hitShip = new Audio('Sound/tiny-rick.wav');
+
 class Game {
   constructor() {
     this.ship = {};
@@ -28,6 +32,7 @@ class Game {
     this.intervalId = null;
   }
 }
+
 function startGame() {
   if(!currentGame){
   currentGame = new Game();
@@ -58,6 +63,10 @@ function checkGameOver() {
   context.font = "100px Ricks";
   context.fillText("GAME OVER", 200, 400);
  currentGame = null
+ themeSong.pause();
+ hitShip.play();
+ 
+ 
 };
 function checkReachPlanet() {
   context.clearRect(0, 0, spaceCanvas.clientWidth, spaceCanvas.clientHeight);
@@ -67,6 +76,8 @@ function checkReachPlanet() {
   context.fillStyle = "rgb(114, 239, 113)";
   context.font = "100px Ricks";
   context.fillText("LEVEL PASS", 200, 400);
+  themeSong.pause();
+  planetLand.play();
   // nextLevel ()
 };
 // function nextLevel (){
@@ -88,13 +99,17 @@ function startNewGame() {
   // }, 1);
   //}
 };
+
+
 function updateCanvas() {
+  themeSong.play();
   context.clearRect(0, 0, spaceCanvas.clientWidth, spaceCanvas.clientHeight);
   currentGame.ship.draw();
   currentGame.planet.draw();
   if (detectCollision(currentGame.planet)) {
     currentGame.gameOver = true;
     checkReachPlanet();
+   
   };
   if (detectCollision(currentGame.planet)) {
     currentGame.gameOver = true;
@@ -120,6 +135,10 @@ function updateCanvas() {
     const currentAliens = new Aliens(randomAlienX, randomAlienY);
     currentGame.aliens.push(currentAliens);
   };
+
+  const backgroundMusic = new Audio("Sound/396239__romariogrande__alien-dream.wav");
+   backgroundMusic.play();
+
 };
 document.addEventListener("keydown", (keyboardEvent) => {
   currentGame.ship.moveShip(keyboardEvent.key);
