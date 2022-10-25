@@ -2,7 +2,7 @@ let aliensArray = [];
 let aliensImg = new Image();
 class Aliens {
   constructor(x, y) {
-    this.image = Math.floor(Math.random() * 5);
+    this.image = Math.floor(Math.random() * 4);
     this.color = "green";
     this.x = x;
     this.y = y;
@@ -18,8 +18,6 @@ class Aliens {
       aliensImg.src = "./image/ghost-morty.png";
     } else if (this.image === 4) {
       aliensImg.src = "./image/pocket-morty.png";
-    } else if (this.image === 5) {
-      aliensImg.src = "./image/spooky-morty.png";
     }
     context.drawImage(aliensImg, this.x, this.y, 50, 50);
   }

@@ -103,3 +103,14 @@ canvas {
   height: 130px;
   width: 330px;
 }
+.paragraph {
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 10px;
+ color: rgb(13, 250, 0);
+  text-shadow: 0 0 3px rgb(4, 4, 4), 0 0 5px rgb(1, 2, 2);
+}
+.paragraphDiv {
+  margin-top: 20px;
+  margin-left: 10px;
+}

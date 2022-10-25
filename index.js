@@ -133,6 +133,7 @@ function updateCanvas() {
       currentGame.aliensFrequency = 0;
       currentGame.aliens = [];
       winGame();
+      planetLand.play();
     }
   }
   currentGame.aliensFrequency += 10;
